@@ -16,7 +16,7 @@ Token Action HUD is a repositionable HUD of actions for a selected token.
 - Unlock the HUD to customise layout and groups per user, and actions per actor.
 - Add your own macros, journal entries and roll table compendiums.
 - Add macro to stress recovery
-- Allow to use status effects to add / remove boost and setback dices
+- Allow to use status effects to add / remove boost and setback dices (Bug in v13.0.0.2_0_3)
 
 ## Installation
 

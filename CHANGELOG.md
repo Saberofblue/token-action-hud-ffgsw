@@ -1,5 +1,10 @@
 # Changelog
 
+`13.0.0.2_0_3`
+* Features:
+  * update compatibility version for foundry VTT 13.351
+  * Update Token Action HUD to 2.1.1
+
 `12.4.5.1_906`
 
 * Fixes:
