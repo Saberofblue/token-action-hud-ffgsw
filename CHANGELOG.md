@@ -1,3 +1,9 @@
+## 14.0.0.2_0_4
+
+- Foundry VTT 14 support (verified 14.368; still runs on 13 with Token Action HUD Core 2.1.x).
+- Resolves the Star Wars FFG system helpers, crew flags, crew-role settings and layout images by the running system id, so the module also works when the system is installed under another id (e.g. the starwarsffg_sandbox build).
+- Manifest: declares both system ids; fixes the recommends relationship key.
+
 # Changelog
 
 `13.0.0.2_0_3`
