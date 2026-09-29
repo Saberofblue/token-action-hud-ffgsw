@@ -1,6 +1,5 @@
 export let RollHandler = null
-import { get_dice_pool } from "../../../systems/starwarsffg/modules/helpers/dice-helpers.js";
-import { skills as skillsList } from "../../../systems/starwarsffg/modules/config/ffg-skills.js";
+import { get_dice_pool, skillsList } from "./system-bridge.js";
 //import { EffectCounter} from "../../statuscounter/module/api.js";
 import { MODULE, STATUSEFFECT } from './constants.js'
 
@@ -114,7 +113,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                 return;
             }
 
-            const crew = await vehicle.getFlag("starwarsffg", "crew");
+            const crew = await vehicle.getFlag(game.system.id, "crew");
 
             try {
                 // validate the vehicle has a crew and there is a role that matches the weapon skill
@@ -123,7 +122,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                     return null
                 }
 
-                const skillRoles = game.settings.get("starwarsffg", "arrayCrewRoles").filter(role => role.role_skill === weapon.system.skill.value);
+                const skillRoles = game.settings.get(game.system.id, "arrayCrewRoles").filter(role => role.role_skill === weapon.system.skill.value);
                 const crewGunners = crew.filter(member => skillRoles.some(role => role.role_name === member.role));
                 if (crewGunners.length === 0) {
                     ui.notifications.warn(game.i18n.format("tokenActionHud.error.crewWeaponSkillMiss", { skilllabel: game.i18n.localize("SWFFG.SkillsName" + weapon.system.skill.value) }));
@@ -177,7 +176,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
         async crewAction(event, actor, actionId) {
             const [crewId, crewRole] = actionId.split(this.delimiter);
             const crewActor = game.actors.get(crewId);
-            const role = game.settings.get("starwarsffg", "arrayCrewRoles").filter(role => role.role_name === crewRole);
+            const role = game.settings.get(game.system.id, "arrayCrewRoles").filter(role => role.role_name === crewRole);
             try {
                 if (crewRole === "Pilot" || role[0]?.use_handling == true) {
                     this.rollVehiclePilot(event, actor, crewId, crewRole, role)

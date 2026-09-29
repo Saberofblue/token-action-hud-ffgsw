@@ -1,11 +1,15 @@
 import { SystemManager } from './system-manager.js'
 import { MODULE, REQUIRED_CORE_MODULE_VERSION } from './constants.js'
 import { addStatusEffect } from './statuseffect.js'
+import { loadSystemBridge } from './system-bridge.js'
 
 Hooks.on('tokenActionHudCoreApiReady', async () => {
     /**
      * Return the SystemManager and requiredCoreModuleVersion to Token Action HUD Core
      */
+    // resolve the system helpers by the running system id before Core asks for the handlers
+    await loadSystemBridge()
+
     const module = game.modules.get(MODULE.ID)
     module.api = {
         requiredCoreModuleVersion: REQUIRED_CORE_MODULE_VERSION,

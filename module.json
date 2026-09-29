@@ -8,10 +8,10 @@
       "flags": {}
     }
   ],
-  "version": "13.0.0.2_0_3",
+  "version": "14.0.0.2_0_4",
   "compatibility": {
     "minimum": "13",
-    "verified": "13.351"
+    "verified": "14.368"
   },
   "esmodules": [
     "scripts/init.js"
@@ -37,11 +37,20 @@
     "systems": [
       {
         "id": "starwarsffg",
-        "manifest": "https://raw.githubusercontent.com/StarWarsFoundryVTT/StarWarsFFG/master/system.json",
         "type": "system",
+        "manifest": "https://github.com/StarWarsFoundryVTT/StarWarsFFG/releases/latest/download/system.json",
         "compatibility": {
           "minimum": "2.0.3",
-          "verified": "2.0.3"
+          "verified": "2.0.4"
+        }
+      },
+      {
+        "id": "starwarsffg_sandbox",
+        "type": "system",
+        "manifest": "https://github.com/Saberofblue/starwarsffg-sandbox/releases/latest/download/system.json",
+        "compatibility": {
+          "minimum": "2.0.4",
+          "verified": "2.0.4.6"
         }
       }
     ],
@@ -52,11 +61,11 @@
         "type": "module",
         "compatibility": {
           "minimum": "2.1.0",
-          "verified": "2.1.1"
+          "verified": "2.1.2"
         }
       }
     ],
-    "Recommended": [
+    "recommends": [
       {
         "id": "statuscounter",
         "type": "module",
@@ -77,9 +86,9 @@
       "flags": {}
     }
   ],
-  "url": "https://github.com/TeddyBears/token-action-hud-ffgsw",
-  "manifest": "https://raw.githubusercontent.com/TeddyBears/token-action-hud-ffgsw/refs/heads/main/module.json",
-  "changelog": "https://github.com/TeddyBears/token-action-hud-ffgsw/blob/main/CHANGELOG.md",
-  "readme": "https://github.com/TeddyBears/token-action-hud-ffgsw/blob/main/README.md",
-  "download": "https://github.com/TeddyBears/token-action-hud-ffgsw/archive/refs/tags/13.0.0.2_0_3.zip"
+  "url": "https://github.com/Saberofblue/token-action-hud-ffgsw",
+  "manifest": "https://github.com/Saberofblue/token-action-hud-ffgsw/releases/latest/download/module.json",
+  "changelog": "https://github.com/Saberofblue/token-action-hud-ffgsw/blob/v14/CHANGELOG.md",
+  "readme": "https://github.com/Saberofblue/token-action-hud-ffgsw/blob/v14/README.md",
+  "download": "https://github.com/Saberofblue/token-action-hud-ffgsw/releases/download/14.0.0.2_0_4/module.zip"
 }

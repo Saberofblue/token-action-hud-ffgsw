@@ -1,8 +1,7 @@
 // System Module Imports
 import { ACTION_TYPE, GROUP, MACRO, MODULE } from './constants.js'
 import { Utils } from './utils.js'
-import { get_dice_pool } from "../../../systems/starwarsffg/modules/helpers/dice-helpers.js";
-import { skills as skillsList } from "../../../systems/starwarsffg/modules/config/ffg-skills.js";
+import { get_dice_pool, skillsList } from "./system-bridge.js";
 
 export let ActionHandler = null
 
@@ -66,7 +65,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                     Array.from(crewElements).forEach(async function (element, index) {
                         const container = element.querySelector(".tah-info-container")
                         const [crewId, crewRole] = element.dataset['actionId'].split(delimiter);
-                        const role = game.settings.get("starwarsffg", "arrayCrewRoles").filter(role => role.role_name === crewRole);
+                        const role = game.settings.get(game.system.id, "arrayCrewRoles").filter(role => role.role_name === crewRole);
                         let skillId = ""
                         if (crewRole === "Pilot") {
                             if (actor?.system?.spaceShip) {
@@ -210,7 +209,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
          * @private
          */
         async #buildCrewSkills() {
-            const crew = await this.actor.getFlag("starwarsffg", "crew");
+            const crew = await this.actor.getFlag(game.system.id, "crew");
             if (!crew || crew.length === 0) {
                 CONFIG.logger.warn(game.i18n.localize("tokenActionHud.error.CrewMiss"));
                 return;

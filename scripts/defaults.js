@@ -19,7 +19,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                 id: 'inventory',
                 name: game.i18n.localize('SWFFG.Combat'),
                 settings: {
-                    image: "systems/starwarsffg/images/mod-weapon.png",
+                    image: `systems/${game.system.id}/images/mod-weapon.png`,
                     grid: true,
                     showTitle: true,
                 },
@@ -36,7 +36,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                 id: 'skills',
                 name: game.i18n.localize('SWFFG.Skills'),
                 settings: {
-                    image: "systems/starwarsffg/images/dice/starwars/whiteHex.png",
+                    image: `systems/${game.system.id}/images/dice/starwars/whiteHex.png`,
                     grid: true,
                     showTitle: true,
                 },
@@ -55,7 +55,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                 id: 'utility',
                 name: game.i18n.localize('tokenActionHud.utility'),
                 settings: {
-                    //image: "systems/starwarsffg/images/dice/starwars/whiteHex.png",
+                    //image: `systems/${game.system.id}/images/dice/starwars/whiteHex.png`,
                     grid: true,
                     showTitle: true,
                 },
