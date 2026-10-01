@@ -377,6 +377,8 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
      * @returns {boolean}   Whether the item is equipped
      */
         #isEquippedItem(item) {
+            // a stowed item is packed away: not usable, whatever the equipped setting says
+            if (item.system?.stowed) return false;
             const excludedTypes = ["gear"];
             return (this.displayUnequipped && !excludedTypes.includes(item.type))
                 || (item.system?.equippable?.equipped && item.type !== "consumable");
