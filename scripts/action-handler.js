@@ -59,7 +59,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                     Array.from(weaponElements).forEach(async function (element, index) {
                         const container = element.querySelector(".tah-info-container")
                         const weapon = coreModule.api.Utils.getItem(actor, element.dataset['actionId']);
-                        get_dice_pool(actor.id, weapon.system.skill.value, await game.ffg.DiceHelpers.getModifiers(new DicePoolFFG(), weapon)).renderPreview(container)
+                        get_dice_pool(actor.id, weapon.system.skill.adjusted || weapon.system.skill.value, await game.ffg.DiceHelpers.getModifiers(new DicePoolFFG(), weapon)).renderPreview(container)
                     });
 
                     Array.from(crewElements).forEach(async function (element, index) {

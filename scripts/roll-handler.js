@@ -94,7 +94,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                     "role": "",
                 }
             }
-            this.rollSkill(event, this.actor, weapon.system.skill.value, foundry.utils.mergeObject(weapon, cardData), { 'difficulty': 2 }, weapon)
+            this.rollSkill(event, this.actor, weapon.system.skill.adjusted || weapon.system.skill.value, foundry.utils.mergeObject(weapon, cardData), { 'difficulty': 2 }, weapon)
         }
 
         /**
@@ -122,10 +122,11 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
                     return null
                 }
 
-                const skillRoles = game.settings.get(game.system.id, "arrayCrewRoles").filter(role => role.role_skill === weapon.system.skill.value);
+                const weaponSkill = weapon.system.skill.adjusted || weapon.system.skill.value;
+                const skillRoles = game.settings.get(game.system.id, "arrayCrewRoles").filter(role => role.role_skill === weaponSkill);
                 const crewGunners = crew.filter(member => skillRoles.some(role => role.role_name === member.role));
                 if (crewGunners.length === 0) {
-                    ui.notifications.warn(game.i18n.format("tokenActionHud.error.crewWeaponSkillMiss", { skilllabel: game.i18n.localize("SWFFG.SkillsName" + weapon.system.skill.value) }));
+                    ui.notifications.warn(game.i18n.format("tokenActionHud.error.crewWeaponSkillMiss", { skilllabel: game.i18n.localize("SWFFG.SkillsName" + weaponSkill) }));
                     return null
 
                 } else if (crewGunners.length > 1) {
