@@ -1,3 +1,8 @@
+## 14.0.0.2_0_5
+
+- A weapon rolls with the skill its mods give it (a pistol grip makes a rifle a Ranged: Light weapon), following the system's 2.0.5 skill-changing modifiers.
+- Stowed items are left off the HUD.
+
 ## 14.0.0.2_0_4
 
 - Foundry VTT 14 support (verified 14.368; still runs on 13 with Token Action HUD Core 2.1.x).

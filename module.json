@@ -8,7 +8,7 @@
       "flags": {}
     }
   ],
-  "version": "14.0.0.2_0_4",
+  "version": "14.0.0.2_0_5",
   "compatibility": {
     "minimum": "13",
     "verified": "14.368"
@@ -90,5 +90,5 @@
   "manifest": "https://github.com/Saberofblue/token-action-hud-ffgsw/releases/latest/download/module.json",
   "changelog": "https://github.com/Saberofblue/token-action-hud-ffgsw/blob/v14/CHANGELOG.md",
   "readme": "https://github.com/Saberofblue/token-action-hud-ffgsw/blob/v14/README.md",
-  "download": "https://github.com/Saberofblue/token-action-hud-ffgsw/releases/download/14.0.0.2_0_4/module.zip"
+  "download": "https://github.com/Saberofblue/token-action-hud-ffgsw/releases/download/14.0.0.2_0_5/module.zip"
 }
